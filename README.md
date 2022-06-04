@@ -23,7 +23,7 @@ Extract `microk8s` kubeconfig.
 make e n=kube0 c='sudo microk8s config' > ~/.kube/kube0
 ```
 
-Update ~/.kube/kube0 file to use the IP address specified.
+Update `~/.kube/kube0` file to use the IP address specified.
 in `Vagrant` file. Port number `16443` may vary.
 
 ```
