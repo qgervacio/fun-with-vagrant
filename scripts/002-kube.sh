@@ -5,3 +5,4 @@ set -x # echo all commands
 
 echo "Installing microk8s..."
 sudo snap install microk8s --classic --channel=1.22/stable
+sudo microk8s enable dns
