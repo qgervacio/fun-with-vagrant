@@ -1,6 +1,6 @@
 # Fun with Vagrant
 
-Use this repo to quickly spin-up VMs to practice environments. Feel free to contribute.
+Use this repo to quickly spin-up VMs to practice _stuff_. Feel free to contribute.
 
 ## Getting Help
 
