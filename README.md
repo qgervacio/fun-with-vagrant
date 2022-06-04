@@ -17,16 +17,22 @@ You can then access for example the following.
 
 ## Kube
 
-Extract `microk8s` kubeconfig
+Extract `microk8s` kubeconfig.
 
-`make e n=kube0 c='sudo microk8s config' > ~/.kube/kube0`
+```
+make e n=kube0 c='sudo microk8s config' > ~/.kube/kube0
+```
 
-Update ~/.kube/kube0 file to use the IP address specified
-in `Vagrant` file
+Update ~/.kube/kube0 file to use the IP address specified.
+in `Vagrant` file. Port number `16443` may vary.
 
-`server: https://192.168.57.10:16443`
+```
+...
+server: https://192.168.57.10:16443
+...
+```
 
-Try it out
+Try it out.
 
 ```
 export KUBECONFIG=~/.kube/kube0
