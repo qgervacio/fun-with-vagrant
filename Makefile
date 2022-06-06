@@ -20,14 +20,6 @@ c: create
 create: ## (c) Create VMs
 	@vagrant up 2>&1 | tee ${LOG}
 
-s: ssh
-ssh: ## (s) SSH to VM. (ex. s n=name)
-	@vagrant ssh $(n)
-
-e: exec
-exec: ## (s) Execute a command to VM. (ex. e n=name c='cmd')
-	@vagrant ssh $(n) -c '$(c)'
-
 x: destroy
 destroy: ## (x) Destroy VMs with force
 	@vagrant destroy -f
