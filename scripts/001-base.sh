@@ -9,9 +9,9 @@ sudo swapoff -a
 echo "Verify MAC address are unique..."
 ip link
 
-echo "Make sure that the br_netfilter module is loaded..."
-sudo modprobe br_netfilter
-lsmod | grep br_netfilter
+# echo "Make sure that the br_netfilter module is loaded..."
+# sudo modprobe br_netfilter
+# lsmod | grep br_netfilter
 
 echo "Update apt package index"
 sudo apt-get update

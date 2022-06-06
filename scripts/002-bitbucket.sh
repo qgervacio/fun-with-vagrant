@@ -8,4 +8,9 @@ sudo snap install docker
 sleep 5s
 
 echo "Running Bitbucket container..."
-sudo docker run -v /home/ubuntu/bitbucket:/var/atlassian/application-data/bitbucket --name="bitbucket" -d -p 7990:7990 -p 7999:7999 atlassian/bitbucket
+sudo docker run -d \
+  -p 7990:7990 \
+  -p 7999:7999 \
+  --name bitbucket \
+  -v /home/ubuntu/bitbucket:/var/atlassian/application-data/bitbucket \
+  atlassian/bitbucket
