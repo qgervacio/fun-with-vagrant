@@ -20,11 +20,15 @@ You can then access for example the following.
 Extract `microk8s` kubeconfig.
 
 ```
-make e n=kube0 c='sudo microk8s config' > ~/.kube/kube0
+vagrant ssh kube0 -c 'sudo microk8s config' > ~/.kube/kube0
 ```
 
 Update `~/.kube/kube0` file to use the IP address specified
 in `Vagrant` file. Port number `16443` may vary.
+
+```
+vim ~/.kube/kube0
+```
 
 ```
 ...
