@@ -12,33 +12,28 @@ make help
 
 You can then access for example the following.
 
-* [Local Bitbucket](http://192.168.57.20:7990)
-* [Local Nexus](http://192.168.57.30:8081)
+* [Local Bitbucket](http://192.168.57.80:7990)
+* [Local Nexus](http://192.168.57.90:8081)
 
 ## Kube
 
-Extract `microk8s` kubeconfig.
+Extract kubeconfig.
 
 ```
-vagrant ssh kube0 -c 'sudo microk8s config' > ~/.kube/kube0
+vagrant ssh [kube-vm] -c 'sudo microk8s config' > ~/.kube/[kube-vm]
 ```
 
-Update `~/.kube/kube0` file to use the IP address specified
+Update `~/.kube/[kube-vm]` file to use the IP address specified
 in `Vagrant` file. Port number `16443` may vary.
 
 ```
-vim ~/.kube/kube0
-```
-
-```
 ...
-server: https://192.168.57.10:16443
+server: https://[the-ip]:16443
 ...
 ```
 
 Try it out.
 
 ```
-export KUBECONFIG=~/.kube/kube0
-kubectl get ns
+KUBECONFIG=~/.kube/[kube-vm] kubectl get ns
 ```
