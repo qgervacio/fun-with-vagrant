@@ -6,9 +6,9 @@
 # only 1 instance per vm
 Vagrant.configure("2") do |config|
   create(config, "kube",      "argo-dev",  "192.168.57.1", 3, 3072, 1)
-  create(config, "kube",      "app-dev",   "192.168.57.1", 2, 2048, 1)
-  create(config, "bitbucket", "bitbucket", "192.168.57.2", 3, 3072, 1)
-  create(config, "nexus",     "nexus",     "192.168.57.3", 3, 3072, 1)
+  create(config, "kube",      "app-dev",   "192.168.57.2", 2, 2048, 1)
+  create(config, "bitbucket", "bitbucket", "192.168.57.8", 3, 3072, 1)
+  create(config, "nexus",     "nexus",     "192.168.57.9", 3, 3072, 1)
 end
 
 def create(config, script, name, ip, cpu, mem, count)
