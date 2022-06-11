@@ -5,12 +5,13 @@
 
 # only 1 instance per vm
 Vagrant.configure("2") do |config|
-  create(config, "kube",      "192.168.57.1", 2, 2048, 2)
-  create(config, "bitbucket", "192.168.57.2", 2, 3072, 1)
-  create(config, "nexus",     "192.168.57.3", 2, 3072, 1)
+  create(config, "kube",      "ss-dev",    "192.168.57.1", 3, 3072, 1)
+  create(config, "kube",      "idaasuiam", "192.168.57.1", 2, 2048, 1)
+  create(config, "bitbucket", "bitbucket". "192.168.57.2", 3, 3072, 1)
+  create(config, "nexus",     "nexus",     "192.168.57.3", 3, 3072, 1)
 end
 
-def create(config, name, ip, cpu, mem, count)
+def create(config, script, name, ip, cpu, mem, count)
   (0...count).each do |i|
     n = "#{name}#{i}"
 
@@ -28,7 +29,7 @@ def create(config, name, ip, cpu, mem, count)
       end
 
       node.vm.provision "shell", path: "scripts/001-base.sh"
-      node.vm.provision "shell", path: "scripts/002-#{name}.sh"
+      node.vm.provision "shell", path: "scripts/002-#{script}.sh"
       node.vm.provision "shell", path: "scripts/003-final.sh"
     end
   end
