@@ -5,14 +5,15 @@
 
 # only 1 instance per vm
 Vagrant.configure("2") do |config|
-  create(config, "kube",      "192.168.57.1", 3, 5120, 1)
-  create(config, "bitbucket", "192.168.57.2", 3, 5120, 1)
+  create(config, "kube",      "192.168.57.1", 2, 3072, 2)
+  create(config, "bitbucket", "192.168.57.2", 2, 3072, 1)
   # create(config, "nexus",   "192.168.57.3", 2, 2048, 1)
 end
 
 def create(config, name, ip, cpu, mem, count)
   (0...count).each do |i|
     n = "#{name}#{i}"
+
     config.vm.define n do |node|
       node.vm.box = "ubuntu/impish64"
       node.vm.hostname = n
@@ -21,6 +22,7 @@ def create(config, name, ip, cpu, mem, count)
         ip: "#{ip}#{i}"
 
       node.vm.provider "virtualbox" do |spec|
+        spec.name   = n
         spec.cpus   = cpu
         spec.memory = mem
       end
