@@ -13,7 +13,7 @@ end
 
 def create(config, script, name, ip, cpu, mem, count)
   (0...count).each do |i|
-    n = "#{name}#{i}"
+    n = "#{name}-#{i}"
 
     config.vm.define n do |node|
       node.vm.box = "ubuntu/impish64"
